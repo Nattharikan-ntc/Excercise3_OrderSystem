@@ -1,0 +1,189 @@
+<aura:component>
+    <!--use boolean attribute for Store true/false value,
+    make default to "false" so modal box are not display on the load of component. 
+    --> 
+    <!-- <aura:registerEvent name="eventQuanlityNotebook" type="c:quanlityNotebook"/> -->
+    <aura:attribute name="isOpen" type="boolean" default="true"/>
+    <aura:attribute name="notebook" type="Notebook__c"/>
+    <aura:attribute name="notebookList" type="Notebook__c[]"/>
+    <aura:attribute name="notebookObjectsList" type="object[]"/>
+    <!-- <aura:attribute name="quanlityNotebook" type="Notebook__c"/> -->
+    <!-- <aura:attribute name="notebookList" type="Notebook__c[]"/> -->
+    
+    <aura:attribute name="chevrondownClick" default="false" type="Boolean" />
+    <aura:attribute name="chevronupClick" default="false" type="Boolean" />
+    <aura:attribute name="numberOfProduct" type="Integer" default="0"/>
+
+    <aura:attribute name="inputNumber" type="integer" default="0"/>
+    <aura:attribute name="Currency" type="integer" default="0"/>
+
+    <aura:attribute name="totalCost" type="integer" default="0"/>
+
+    <!--Use "slds-m-around_xx-large" class to add standard X-Large padding to the component--> 
+    <div class="slds-m-around_xx-large">      
+        <!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->   
+        <aura:if isTrue="{!v.isOpen}">
+            <!--###### MODAL BOX Start######--> 
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- ###### MODAL BOX HEADER Start ######-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Product details</h2>
+                    </header>
+
+                  <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <table id="customers"><!-- <table style="width:100%" id="customers"> -->
+                      <tr>
+                        <th>Brand / Model</th>
+                        <td>{!v.notebook.Name}</td>
+                      </tr>
+                      <tr>
+                        <th>Laptops</th>
+                        <td>{!v.notebook.Laptops__c}</td>
+                      </tr>
+                      <tr>
+                        <th>Processor</th>
+                        <td>{!v.notebook.Processor__c}</td>
+                      </tr>
+                      <tr>
+                        <th>Graphics</th>
+                        <td>{!v.notebook.Graphics__c}</td>
+                      </tr>
+                      <tr>
+                        <th>Display</th>
+                        <td>{!v.notebook.Display__c}</td>
+                      </tr>
+                      <tr>
+                        <th>Memory</th>
+                        <td>{!v.notebook.Memory__c}</td>
+                      </tr>
+                      <tr>
+                        <th>Hard Drive</th>
+                        <td>{!v.notebook.Hard_Drive__c}</td>
+                      </tr>
+                      <tr>
+                        <th>OS</th>
+                        <td>{!v.notebook.OS__c}</td>
+                      </tr>
+                      <tr>
+                        <th>Special Feature</th>
+                        <td>{!v.notebook.Special_Feature__c}</td>
+                      </tr>
+                      <tr>
+                        <th>Price</th>
+                        <td>฿{!v.notebook.Price__c}</td>
+                      </tr>
+                    </table>
+                    <br/>
+                        
+                  <div class="c-container">
+                      <lightning:layout>
+                        Enter a number: 
+                        <lightning:layoutItem flexibility="auto" padding="horizontal-medium">
+                          <div class="custom-box">
+                              <lightning:buttonIconStateful iconName="utility:chevrondown" selected="{!v.chevrondownClick }" onclick="{!c.handleChevrondownClick }" alternativeText="chevrondown" />
+                              <ui:inputNumber class="field"  aura:id="inputQuanlity" label="" value="{!v.notebook.Quanlity}" updateOn="keyup" keyup="{!c.handleKeyUP }"/>
+                              <lightning:buttonIconStateful iconName="utility:chevronup" selected="{!v.chevronupClick }" onclick="{!c.handleChevronupClick }" alternativeText="chevronup" />
+                            
+                            <!-- <lightning:buttonGroup>
+                              <lightning:buttonIconStateful  iconName="utility:add" alternativeText="add" aura:id="add" title="add" onclick="{!c.add}"/>
+                              <lightning:button title="Quantity" label="{!v.Product.orderQt}" />
+                              <ui:outputText aura:id="newQt" value="{!v.newQt}" />
+                              <lightning:buttonIconStateful  iconName="utility:dash" alternativeText="dash" aura:id="dash" title="dash" onclick="{!c.dash}"/>
+                              <lightning:buttonIconStateful  iconName="utility:clear" alternativeText="clear" aura:id="clear" title="clear" onclick="{!c.clear}"/>
+                          </lightning:buttonGroup> -->
+                          </div>
+                        </lightning:layoutItem>
+
+                        <lightning:layoutItem flexibility="auto" padding="horizontal-medium">
+                          <!-- <div class="custom-box" > -->
+                            <lightning:button variant="destructive-text" label="หยิบใส่ตะกร้า" title="Destructive action" onclick="{!c.handleAddtocart}"/>
+                          <!-- </div> -->
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                  </div>
+                  
+                  <br/>
+                  <div class="custom-boxs" >
+                    <lightning:button iconName="standard:webcart" variant="destructive" label="ดูรถเข็นของคุณ" title="Destructive action" onclick="{!c.handleGoTocart}"/>
+                  </div>
+                    <!-- <ui:outputNumber value="{!v.inputNumber}"/> -->
+                </div>
+                    <!--###### MODAL BOX FOOTER Part Start ######-->
+              </div>
+          </section>
+          <div class="slds-backdrop slds-backdrop_open"></div>
+            <!--###### MODAL BOX Part END Here ######-->         
+        </aura:if>
+    </div>
+
+
+
+    <!-- <h1>Product details</h1>
+    <p>Microsoft Surface GO 2 LTE M/8/128 SC Platinum with Type Cover</p> -->
+
+    <!-- <lightning:carousel disableAutoScroll="true">
+        <div class="page-content">
+            <lightning:carouselImage
+                src="{!$Resource.productOne+'/'+ '1' +'.PNG'}"
+                header = "First Card"
+                description = "First card description."
+                alternativeText = "First card accessible description."
+                href = "https://www.salesforce.com">
+            </lightning:carouselImage>
+        </div> -->
+
+        <!-- <lightning:carouselImage
+            src = "/docs/component-library/app/images/examples/carousel-02.png"
+            header = "Second Card"
+            description = "Second card description."
+            alternativeText = "Second card accessible description."
+            href = "https://www.salesforce.com">
+        </lightning:carouselImage>
+        <lightning:carouselImage
+            src = "/docs/component-library/app/images/examples/carousel-03.png"
+            header = "Third Card"
+            description = "Third card description."
+            alternativeText = "Third card accessible description."
+            href = "https://www.salesforce.com">
+        </lightning:carouselImage> -->
+    <!-- </lightning:carousel> -->
+
+    <!-- <div class="slds-form-element">
+        <label class="slds-form-element__label slds-m-right_none" for="default1">Counter Label</label>
+        <div class="slds-form-element__control">
+          <button class="slds-button slds-button_icon slds-button_icon-small slds-input__button_decrement" title="Decrement counter">
+            <svg class="slds-button__icon" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#ban"></use>
+            </svg>
+            <span class="slds-assistive-text">Decrement counter</span>
+          </button>
+          <input type="number" id="default1" placeholder="1" class="slds-input slds-input_counter" />
+          <button class="slds-button slds-button_icon slds-button_icon-small slds-input__button_increment" title="Increment counter">
+            <svg class="slds-button__icon" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#new"></use>
+            </svg>
+            <span class="slds-assistive-text">Increment counter</span>
+          </button>
+        </div>
+      </div> -->   
+</aura:component>	
+
+                          <!-- <lightning:layoutItem flexibility="auto" padding="horizontal-medium"> -->
+                              <!-- <div class="custom-box"> -->
+                                <!-- <ui:inputText label="" class="field" value="{!v.numberOfProduct}" updateOn="click"/> -->
+                              <!-- </div> -->
+                          <!-- </lightning:layoutItem> -->
+
+                          <!-- <lightning:layoutItem flexibility="auto" padding="horizontal-medium"> -->
+                              <!-- <div class="custom-box"> -->
+                                <!-- <lightning:buttonIconStateful iconName="utility:chevronup" selected="{!v.chevronupClick }" onclick="{! c.handleChevronupClickClick }" alternativeText="chevronup" /> -->
+                              <!-- </div> -->
+                          <!-- </lightning:layoutItem> -->
+
+                          <!-- <lightning:button variant="destructive-text" label="หยิบใส่ตะกร้า" title="Destructive action" onclick="{! c.createForm }"/> -->

@@ -1,0 +1,23 @@
+
+.THIS #customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: medium;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .THIS #customers td, .THIS #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  .THIS.h1 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    color: aliceblue;
+    font-size: medium;
+    text-align: center;
+}
+
+  .THIS.custom-boxbutton {
+    text-align: center;
+  }

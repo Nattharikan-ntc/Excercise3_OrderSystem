@@ -1,0 +1,11 @@
+.THIS.page-content img  {
+    /* max-width: 100%;
+    height: auto!important; */
+
+    width: 300px;
+	height: 200px;
+}
+
+.THIS.a {
+    font-size: 100px; /* example size, can be any size, in px, em, rem, % */
+}

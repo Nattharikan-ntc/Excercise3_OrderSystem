@@ -1,0 +1,65 @@
+<aura:component>
+    <!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> -->
+    <aura:attribute name="userForm" type="UserForm__c"/>
+    <aura:attribute name="index" type="Integer" default="1"/>
+    <!-- <aura:attribute name="userForm" type=" UserForm__c"/> -->
+    <aura:attribute name="notebookListOfUser" type="object[]"/>
+
+    
+    <!-- <p> {!v.userForm.Name} <br/>
+        {!v.userForm.Street__c}  <br/>
+        {!v.userForm.City__c}  <br/>
+        {!v.userForm.Country__c}  <br/>
+        {!v.userForm.Province__c}  <br/>
+        {!v.userForm.PostalCode__c} <br/>
+        {!v.userForm.Email__c} <br/>
+        {!v.userForm.Phone__c} <br/> 
+        {!v.userForm.Order_amount__c} <br/> </p> -->
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <h1> สรุปยอดการสั่งซื้อ </h1> <br/>
+            <table id="customers"><!-- <table style="width:100%" id="customers"> -->
+              <tr>
+                <th>Name :</th>
+                <td>{!v.userForm.Name}</td>
+              </tr>
+              <tr>
+                <th>Address :</th>
+                <td>{!v.userForm.Street__c} Stree / {!v.userForm.City__c} City / {!v.userForm.Province__c}  / {!v.userForm.Country__c}  / {!v.userForm.PostalCode__c}  </td>
+              </tr>
+              <tr>
+                <th>Email :</th>
+                <td>{!v.userForm.Email__c} </td>
+              </tr>
+              <tr>
+                <th>Contact number :</th>
+                <td>{!v.userForm.Phone__c} </td>
+              </tr>
+              <tr>
+
+                <th>All ordered items :</th>
+                <aura:iteration items="{!v.notebookListOfUser}" var="item" indexVar="{!v.index}">
+                    <td>- {!item.Name}</td><br/>
+                </aura:iteration>
+              </tr>
+
+              <tr>
+                <th>Total amount of payment : </th>
+                <td>                    
+                    <!-- <lightning:layoutItem flexibility="auto" padding="around-small"> -->
+                        <ui:outputCurrency value="{!v.userForm.Order_amount__c}"/>
+                    <!-- </lightning:layoutItem> -->
+                </td>
+              </tr>
+            </table>
+            <br/>
+            <lightning:layout>
+                <lightning:layoutItem>
+                    <div class="custom-boxbutton"><lightning:button variant="brand" label="PDF view" title="Brand action" onclick="{!c.handlePDF }" />  </div>
+                </lightning:layoutItem>
+    
+            </lightning:layout>
+        </div>  
+        
+    
+
+</aura:component>	

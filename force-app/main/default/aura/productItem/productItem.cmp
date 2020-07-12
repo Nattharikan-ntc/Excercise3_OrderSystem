@@ -1,0 +1,20 @@
+<aura:component>
+
+    <!-- <aura:attribute name="pictureIndex" type="String"/> -->
+    <aura:registerEvent name="eventSelectNotebook" type="c:selectNotebook"/>
+    <aura:attribute name="notebookList" type="Notebook__c"/>
+    
+    <div class="custom-box" onclick="{!c.selectNotebook}">
+        <div class="page-content">
+            <img src="{!$Resource.Notebookpictures+'/'+ v.notebookList.Image__c +'.jpg'}"/>
+        </div>
+
+        <div class="slds-truncate"> 
+            <a href="javascript:void(0);" >{!v.notebookList.Name}</a>
+        </div>
+
+        <p> Price : ฿{!v.notebookList.Price__c}</p>
+   </div>
+
+
+</aura:component>	

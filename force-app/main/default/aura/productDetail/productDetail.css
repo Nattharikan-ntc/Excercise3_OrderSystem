@@ -1,0 +1,92 @@
+/*  .THIS.body { 
+    color: blue;
+}*/
+
+/* .THIS #h2 {
+    color: rgb(33, 36, 33);
+    font-size: x-large;
+  } */
+
+ /* .THIS.page-content img  {
+   max-width: 100%;
+    height: auto!important; 
+    width: 180px;
+	  height: 200px;
+} 
+
+/* .THIS.c-button {
+    text-align: center;
+    display: block;
+    margin: auto;
+} */
+
+/* .THIS label.uiLabel {
+    padding-right: 12px;
+} */
+
+.THIS .field{  
+  padding: 5px;
+  border: 1px solid #dce4ec;
+  border-radius: 2px;
+  width: 20%;
+  height : 0px !important;
+} 
+
+.THIS.c-container {
+  border: 1px solid #d8dde6;
+  /* margin: 10px 0 20px 0; */
+}
+
+.THIS .custom-box { 
+  text-align: center;
+  /* background-color: #f4f6f9;  */
+  /* padding: 1rem;  */
+  padding: 2px; 
+  /* border: 1px solid #d8dde6;  */
+ }
+
+ .THIS .custom-boxs { 
+  text-align: center;
+  /* background-color: #f4f6f9;  */
+  /* padding: 1rem;  */
+  padding: 2px; 
+  /* border: 1px solid #d8dde6;  */
+ }
+
+/* .THIS table, .THIS th, .THIS td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.THIS th, .THIS td{
+  padding: 5px;
+  text-align: left;
+} */
+
+.THIS #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: medium;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.THIS #customers td, .THIS #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.THIS #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+.THIS #customers tr:hover {background-color: #ddd;}
+
+.THIS #customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* .THIS test{
+  text-align: center;
+} */

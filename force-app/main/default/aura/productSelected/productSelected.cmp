@@ -1,0 +1,86 @@
+<aura:component>
+    
+    <aura:attribute name="notebookObjects" type="object[]"/>
+    <aura:attribute name="totalCost" type="integer"/>
+    <aura:attribute name="Currency" type="integer" default="50"/>
+   
+
+    <aura:attribute name="chevrondownClick" default="false" type="Boolean" />
+    <aura:attribute name="chevronupClick" default="false" type="Boolean" />
+        <!-- <aura:attribute name="numberofNotebook" type="Integer"/>  -->
+
+    <aura:attribute name="myCurrency" type="integer" default="0"/>  
+    <aura:attribute name="inputNumber" type="integer"/>  
+
+    <div class="c-container">
+        <lightning:layout multipleRows="true">
+
+            <lightning:layoutItem padding="around-small" size="12">
+                <div class="page-section page-header">
+                    <h2>รถเข็น</h2>
+                </div>
+            </lightning:layoutItem>
+
+            <aura:iteration items="{!v.notebookObjects}" var="notebookItem" >               
+                <div class="c-container">
+                    <lightning:layout>
+                        <lightning:layoutItem flexibility="auto" padding="around-small">
+                            <div class="custom-box">
+                                <div class="clearfix">
+                                    <lightning:layout>
+                                        <lightning:layoutItem flexibility="auto" padding="around-small">
+                                            <!-- <img class="img2" src="pineapple.jpg" alt="Pineapple" > -->
+                                            <img class="img2" src="{!$Resource.Notebookpictures+'/'+ notebookItem.Image__c +'.jpg'}"/>   
+                                        </lightning:layoutItem>
+
+                                        <lightning:layoutItem flexibility="auto" padding="around-small">
+                                           <!-- {!notebookItem.Image__c} -->
+                                           {!notebookItem.Name}<br/>
+                                            <!-- Price : {!notebookItem.PriceTotal} -->
+                                        </lightning:layoutItem>
+
+                                        <lightning:layoutItem flexibility="auto" padding="around-small">
+                                            
+                                                <lightning:buttonIconStateful iconName="utility:chevrondown" selected="{!v.chevrondownClick }" onclick="{!c.handleChevrondownClick }" alternativeText="chevrondown" />
+                                                <ui:inputNumber class="field"  aura:id="inputQuanlity" label="" value="{!notebookItem.Quanlity}" updateOn="keyup" keyup="{!c.handleKeyUP }"/>
+                                                <lightning:buttonIconStateful iconName="utility:chevronup" selected="{!v.chevronupClick }" onclick="{!c.handleChevronupClick }" alternativeText="chevronup" />
+                                            
+                                        </lightning:layoutItem>
+
+                                        <lightning:layoutItem flexibility="auto" padding="around-small">
+                                            <ui:outputCurrency value="{!notebookItem.PriceTotal}"/>
+                                        </lightning:layoutItem>
+
+                                    </lightning:layout>
+                                </div>
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </div>
+            </aura:iteration>
+  
+            <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+                <div class="page-footer page-section">
+                    <lightning:layoutItem flexibility="auto" padding="around-small">
+                        <ui:outputCurrency value="{!v.totalCost}"/>
+                    </lightning:layoutItem>
+                </div>
+            </lightning:layoutItem>
+  
+        </lightning:layout>
+    </div>
+
+    <!-- <div class="c-container"> -->
+        <lightning:layout>
+            <lightning:layoutItem >
+                <div class="custom-boxbutton"><lightning:button variant="success" label="Back" title="Success" onclick="{!c.backToOrderSystem}"/></div>
+            </lightning:layoutItem>
+   
+            <lightning:layoutItem alignmentBump="left">
+                <div class="custom-boxbutton"><lightning:button variant="brand" label="Next" title="Brand action" onclick="{!c.handleNextToForm }" />  </div>
+            </lightning:layoutItem>
+
+        </lightning:layout>
+    <!-- </div> -->
+</aura:component>	
+              

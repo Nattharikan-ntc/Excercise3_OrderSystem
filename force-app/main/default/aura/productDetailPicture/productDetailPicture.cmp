@@ -1,0 +1,8 @@
+<aura:component>
+    <aura:attribute name="notebookList" type="Notebook__c"/>
+
+        <div class="page-content">
+            <img src="{!$Resource.Notebookpictures+'/'+ v.notebookList.Image_Detail__c +'.jpg'}"/>
+        </div>
+
+</aura:component>	

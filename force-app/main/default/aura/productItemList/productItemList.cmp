@@ -1,0 +1,71 @@
+<aura:component>
+    <aura:attribute name="notebookList" type="Notebook__c[]"/>
+    <!-- <aura:attribute name="notebook" type="Notebook__c"/> -->
+    <!-- <aura:registerEvent name="eventSelectNotebook" type="c:selectNotebook"/> -->
+
+    <div class="c-container">
+        <lightning:layout multipleRows="true">
+            <aura:iteration items="{!v.notebookList}" var="item" >
+                <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                   <c:productItem notebookList = "{!item}"/>
+                </lightning:layoutItem>
+            </aura:iteration>
+
+            <!-- <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                <div class="custom-box">2</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                <div class="custom-box">3</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                <div class="custom-box">4</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                <div class="custom-box">5</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                <div class="custom-box">6</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                <div class="custom-box">7</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4" largeDeviceSize="3" padding="around-small">
+                <div class="custom-box">8</div>
+            </lightning:layoutItem> -->
+        </lightning:layout>
+    </div>
+
+    
+
+    <!-- <div class="c-container">
+        <lightning:layout>           
+            <aura:iteration items="{!v.indexPicture}" var="index">               
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <div class="custom-box" onclick="{!c.callproductDetail}"> 
+                        <c:productItem indexPictures = "{!index}" />
+                        <div class="slds-truncate">
+                            <a href="javascript:void(0);">
+                                ppppp
+                            </a>
+                        </div>
+                    </div>
+                </lightning:layoutItem>                   
+            </aura:iteration>  
+        </lightning:layout> -->
+        
+            <!-- <lightning:layoutItem flexibility="auto" padding="around-small">
+                <div class="custom-box">1</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <div class="custom-box">2</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <div class="custom-box">3</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <div class="custom-box">4</div>
+            </lightning:layoutItem> -->
+    <!-- </div> -->
+
+<!-- <div class="slds-backdrop slds-backdrop_open"></div> -->
+</aura:component>	

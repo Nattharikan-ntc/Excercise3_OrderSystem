@@ -1,0 +1,74 @@
+<aura:component controller = "notebookRecords" implements="force:appHostable" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="eventSelectNotebook" event="c:selectNotebook" action="{!c.handleEventNotebook}"/>
+    <!-- <aura:handler name="eventQuanlityNotebook" event="c:quanlityNotebook" action="{!c.handleQuanlityNotebook}"/> -->
+
+    <aura:attribute name="notebookList" type="Notebook__c[]"/>
+    <aura:attribute name="isOpen" type="boolean" default="false"/> 
+    <aura:attribute name="notebookSelected" type="Notebook__c"/>
+    
+
+    <div class="c-container">
+        <lightning:layout multipleRows="true">
+
+            <lightning:layoutItem padding="around-small" size="12">
+                <div class="page-section page-header">
+                    <h2>Notebook Shop</h2>
+                </div>
+            </lightning:layoutItem>
+
+            <div class="c-productItemList">
+                <c:productItemList notebookList = "{!v.notebookList}"/>     
+                <c:productDetail notebookList ="{!v.notebookList}" notebook = "{!v.notebookSelected}" isOpen = "{!v.isOpen}" />   
+                <!-- <c:productDetail notebookDetail = "{!v.notebookList}"/>-->
+            </div>
+            
+            
+            <!-- <lightning:layoutItem padding="around-small" size="12">
+                <lightning:layout>
+                    <lightning:layoutItem padding="around-small" size="3">
+                        <div class="page-section page-right">
+                            <h2>Left Sidebar</h2>
+                            <p>
+                                 list item 
+                                <c:productItemList/>
+                            </p>
+                        </div>
+                    </lightning:layoutItem> -->
+                
+                    <!-- <lightning:layoutItem padding="around-small" size="6">
+                        <div class="page-section page-main">
+                            <h2>Main</h2>
+                            <p>Show Detail</p>
+                            <p>Select number of item </p>
+                        </div>
+                    </lightning:layoutItem> -->
+                    <!-- <lightning:layoutItem padding="around-small" size="3">
+                        <div class="page-section page-right">
+                            <h2>Right Sidebar</h2>
+                            <ul>
+                                <li><a href="#">Archive 1</a>
+                                </li>
+                                <li><a href="#">Archive 2</a>
+                                </li>
+                                <li><a href="#">Archive 3</a>
+                                </li>
+                                <li><a href="#">Archive 4</a>
+                                </li>
+                                <li><a href="#">Archive 5</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </lightning:layoutItem> -->
+                <!-- </lightning:layout>
+            </lightning:layoutItem> -->
+
+            <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+                <div class="page-footer page-section">
+                    <h2></h2>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+
+</aura:component>	

@@ -1,0 +1,102 @@
+<aura:component controller = "userForm">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="notebookListOfUser" type="object[]"/>
+    <aura:attribute name="notebookListOfUserId" type="String[]"/>
+    <aura:attribute name="totalCost" type="integer"/>
+    <aura:attribute name="userForm" type="UserForm__c"
+    default="{ 'sobjectType': 'UserForm__c',
+                   'Name': '',
+                   'Street__c': '',
+                   'City__c' : '',
+                   'Country__c' : '',
+                   'Province__c' : '',
+                   'PostalCode__c' : '',
+                   'Email__c': '',
+                   'Phone__c': '',
+                   'Order_amount__c' : 0,
+                   'Notebook__c' :''
+             }"/>
+
+             <aura:attribute name="userForms" type="UserForm__c[]"/>
+        <!-- PAGE HEADER -->
+        <lightning:layout class="slds-page-header slds-page-header--object-home">
+            <lightning:layoutItem>
+                <lightning:icon iconName="standard:scan_card" alternativeText="My Expenses"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="horizontal-small">
+                <div class="page-section page-header">
+                    <h2 class="slds-text-heading--label">Form</h2>
+                    <h1 class="slds-text-heading--medium">Enter your information</h1>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <!-- / PAGE HEADER -->
+        <!-- NEW EXPENSE FORM -->
+        <!-- <lightning:layout>
+            <lightning:layoutItem padding="around-small" size="6"> -->
+            <!-- [[ expense form goes here ]] -->
+            <!-- </lightning:layoutItem>
+        </lightning:layout> -->
+        <!-- / NEW EXPENSE FORM -->
+
+            <!-- CREATE NEW EXPENSE -->
+    <div aria-labelledby="newexpenseform">
+        <!-- BOXED AREA -->
+        <fieldset class="slds-box slds-theme--default slds-container--small">
+        <!-- <legend id="newexpenseform" class="slds-text-headingsmall 
+          slds-p-verticalmedium"> -->
+          <h1>Add Form</h1>
+        <!-- </legend> -->
+  
+        <!-- CREATE NEW EXPENSE FORM -->
+        <form class="slds-form--stacked">          
+            <lightning:input aura:id="userform" label="Name"
+                             name="expensename"
+                             value="{!v.userForm.Name}"
+                             required="true"/> <br/>
+            <lightning:inputAddress aura:id="userform"
+                             addressLabel="Address"
+                             streetLabel="Street"
+                             cityLabel="City"
+                             countryLabel="Country"
+                             provinceLabel="Province"
+                             postalCodeLabel="PostalCode"
+                             street="{!v.userForm.Street__c}"
+                             city="{!v.userForm.City__c}"
+                             country="{!v.userForm.Country__c}"
+                             province="{!v.userForm.Province__c}"
+                             postalCode="{!v.userForm.PostalCode__c}"
+                             required="true"
+                             fieldLevelHelp="Help Text for inputAddress field"/> <br/>
+            
+            <lightning:input aura:id="userform" type="email" name="email" placeholder="youraddress@company.com" label="Email" value = "{!v.userForm.Email__c}"/> <br/>
+            <lightning:input aura:id="userform" type="tel" label="Basic phone field" name="phone" placeholder="000-0000000" value = "{!v.userForm.Phone__c}"/>
+            
+            <!-- <lightning:input aura:id="expenseform" label="Client"
+                             name="expenseclient"
+                             value="{!v.newExpense.Client__c}"
+                             placeholder="ABC Co."/>
+            <lightning:input type="date" aura:id="expenseform" label="Expense Date"
+                             name="expensedate"
+                             value="{!v.newExpense.Date__c}"/>
+            <lightning:input type="checkbox" aura:id="expenseform" label="Reimbursed?"  
+                             name="expreimbursed"
+                             checked="{!v.newExpense.Reimbursed__c}"/> -->
+            <lightning:button label="Create Form" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.clickCreate}"/>
+        </form>
+        <!-- / CREATE NEW EXPENSE FORM -->
+  
+      </fieldset>
+      <!-- / BOXED AREA -->
+    </div>
+    <!-- / CREATE NEW EXPENSE -->
+
+    <!-- <lightning:layout>
+        <lightning:layoutItem >
+            <div class="custom-boxbutton"><lightning:button variant="success" label="Back" title="Success" onclick="{!c.backToProductSelected}"/></div>
+        </lightning:layoutItem>
+    </lightning:layout> -->
+</aura:component>	

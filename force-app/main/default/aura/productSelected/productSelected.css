@@ -1,0 +1,82 @@
+.THIS.c-container {
+    border: 1px solid #d8dde6;
+    margin: 10px 0 20px 0;
+}
+.THIS .page-section {
+    border: solid 1px #ccc;
+    padding: 1rem;
+}
+.THIS .page-header {
+    height: 80px;
+    background-color: hsl(0, 65%, 61%);
+    color: rgb(241, 245, 248);
+    padding: 20px;
+    text-align: left;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    /* font-style: oblique; */
+    font-size: 30px;
+}
+.THIS .page-footer {
+    height: 80px;
+    background-color: hsl(0, 65%, 61%);
+    color: rgb(241, 245, 248);
+    padding: 20px;
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    /* font-style: oblique; */
+    font-size: 30px;
+}
+.THIS .page-main {
+    background: #f8f8f8;
+}
+.THIS .page-left,
+.THIS .page-right {
+    background: #f0efef;
+}
+
+.THIS.h1 {
+    color: aliceblue;
+}
+
+.THIS.h2 {
+    color: aliceblue;
+    text-align: center;
+}
+
+.THIS.c-container {
+    border: 1px solid #d8dde6;
+    margin: 10px 0 20px 0;
+    background-color: #f4f6f9;
+}
+  
+.THIS .custom-box { 
+    text-align: center;
+    background-color: #f4f6f9;
+    padding: 2px; 
+    border: 1px solid #d8dde6; 
+}
+
+.THIS .custom-boxbutton { 
+    text-align: center;
+    /* background-color: #f4f6f9; */
+    padding: 2px; 
+    /* border: 1px solid #d8dde6;  */
+}
+
+.THIS clearfix {
+    overflow: auto;
+}
+
+.THIS .img2 {
+    float: left;
+    width: 180px;
+    height: 130px;
+}
+
+.THIS .field{  
+    padding: 5px;
+    border: 1px solid #dce4ec;
+    border-radius: 2px;
+    width: 40%;
+    height : 0px !important;
+  } 
